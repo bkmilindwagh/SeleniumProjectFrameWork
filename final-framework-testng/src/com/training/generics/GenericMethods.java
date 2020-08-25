@@ -15,11 +15,11 @@ import org.openqa.selenium.WebElement;
  */
 public class GenericMethods {
 	WebDriver driver ; 
-	
+
 	public GenericMethods(WebDriver driver){
 		this.driver = driver;
 	}
-	
+
 	/**
 	 * 
 	 * @param locator 
@@ -32,7 +32,7 @@ public class GenericMethods {
 	public WebElement getElement(String locator, String type){
 		WebElement element  = null;
 		type = type.toLowerCase();
-		
+
 		if(type.equals("id")){
 			element  =  driver.findElement(By.id(locator));
 		} else if(type.equals("css")){
@@ -41,6 +41,10 @@ public class GenericMethods {
 			element  = driver.findElement(By.name(locator));
 		}else if(type.equals("xpath")){
 			element = driver.findElement(By.xpath(locator));
+		}else if(type.equals("linkText")){
+			element = driver.findElement(By.linkText(locator));
+		}else if(type.equals("partialLinkText")){
+			element = driver.findElement(By.partialLinkText(locator));
 		}
 		if(checkSingleEntry(locator, type)){
 			System.out.println("Element Found and Returned");
@@ -51,10 +55,10 @@ public class GenericMethods {
 
 
 	}
-	
-	
+
+
 	// shall give if it has multiple entries as a list in DOM 
-	
+
 	public List<WebElement> getElementsAsList(String locator, String type){
 		type = type.toLowerCase();
 		if(type.equals("id")){
@@ -68,14 +72,14 @@ public class GenericMethods {
 		}// other TODO 
 		return null;
 	}
-	
+
 	// return true if element exists 
 	// this method works for us when we have more than 1 element 
 	// to be found for 
 	public boolean isElementFound(String locator, String type){
 		return getElementsAsList(locator, type).size()>0;
 	}
-	
+
 	// this method gives true only where there is an single entry 
 	// in the DOM 
 	public boolean checkSingleEntry(String locator, String type){
