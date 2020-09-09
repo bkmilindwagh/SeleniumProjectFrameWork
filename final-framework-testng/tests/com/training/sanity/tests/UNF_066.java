@@ -8,6 +8,7 @@ import org.openqa.selenium.WebDriver;
 import org.testng.Assert;
 import org.testng.annotations.AfterMethod;
 import org.testng.annotations.BeforeClass;
+import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
 
 import com.training.dataproviders.LoginDataProviders;
@@ -30,8 +31,9 @@ import com.training.utility.DriverFactory;
 import com.training.utility.DriverNames;
 
 public class UNF_066 {
-private WebDriver driver;
-	
+
+	private WebDriver driver;
+
 	private String adminUrl;
 	private LoginPOM loginPOM;
 	private AcctInfoPOM acctInfoPOM;
@@ -40,7 +42,7 @@ private WebDriver driver;
 	private CartPOM cartPOM;
 	private ProductPOM productPOM;
 	private AdminLoginPOM adminLoginPOM;
-	
+
 	private ProdGenPOM prodGenPOM;
 	private ProdDataPOM prodDataPOM;
 	private ProdLinksPOM prodLinksPOM;
@@ -49,18 +51,25 @@ private WebDriver driver;
 	private ProdAttrPOM prodAttrPOM;
 	private ProdRewardPOM prodRewardPOM;
 	private CategoryPOM categoryPOM;
-	
-	
-	
+
+
+
+
+
 	private static Properties properties;
 	//private ScreenShot screenShot;
 
 	@BeforeClass
-	public void setUpBeforeClass() throws IOException {
+	public static void setUpBeforeClass() throws IOException {
 		properties = new Properties();
 		FileInputStream inStream = new FileInputStream("./resources/others.properties");
 		properties.load(inStream);
+	}
+
+	@BeforeMethod
+	public void setUp() throws Exception {
 		driver = DriverFactory.getDriver(DriverNames.CHROME);
+		loginPOM = new LoginPOM(driver); 
 		loginPOM = new LoginPOM(driver); 
 		acctInfoPOM = new AcctInfoPOM(driver);
 		passwordPOM = new PasswordPOM(driver);
@@ -76,50 +85,43 @@ private WebDriver driver;
 		prodAttrPOM = new ProdAttrPOM(driver);
 		prodRewardPOM = new ProdRewardPOM(driver);
 		categoryPOM = new CategoryPOM(driver);
-		
-						
+
 		adminUrl = properties.getProperty("adminUrl");
 		//screenShot = new ScreenShot(driver); 
 		// open the browser 
 		driver.get(adminUrl);
-		
 	}
 
-		
 	@AfterMethod
 	public void tearDown() throws Exception {
 		Thread.sleep(1000);
 		//driver.quit();
 	}
 	
+	
 	@Test(priority=1)
-	public void Login() {
+	public void AdminAddingProduct() throws InterruptedException {
 		adminLoginPOM.sendadminUserName("admin");
 		loginPOM.sendPassword("admin@123");
 		adminLoginPOM.clickadminLoginBtn();
-	}	
-	
-	@Test(priority=2, dataProvider = "category-inputs", dataProviderClass = LoginDataProviders.class)
-	public void AdminAddXlsData(String inputname, String CategDescription, String MetaTagtitle, String MetaTagdescription)  {
-		
-					
+
 		catelogPOM.clickCatalog();
 		categoryPOM.clickCategories();
 		productPOM.clickaddNew();
-				
-		prodGenPOM.sendinputname(inputname);
-		categoryPOM.sendCategDescription(CategDescription);
-		categoryPOM.sendMetaTagtitle(MetaTagtitle);
-		categoryPOM.sendMetaTagdescription(MetaTagdescription);
+
+		prodGenPOM.sendinputname("Sports1");
+		categoryPOM.sendCategDescription("Sports shoes1");
+		categoryPOM.sendMetaTagtitle("shoes1");
+		categoryPOM.sendMetaTagdescription("Sports shoes1");
 		categoryPOM.clickSaveBtn();
-		
+
 		acctInfoPOM.ContinueSuccessMessage();
-			
+
 		productPOM.getProdSubmitSccessMessage();
 		String ActualResults = productPOM.getProdSubmitSccessMessage();
 		String ExpectedResults = "Success";
 		System.out.println(ActualResults);
 		Assert.assertTrue(ActualResults.contains(ExpectedResults));
-				
+
 	}
 }
