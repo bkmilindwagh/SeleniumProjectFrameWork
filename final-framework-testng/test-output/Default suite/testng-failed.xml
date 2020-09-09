@@ -3,14 +3,14 @@
 <suite name="Failed suite [Default suite]" guice-stage="DEVELOPMENT">
   <test thread-count="5" name="Default test(failed)">
     <classes>
-      <class name="com.training.sanity.tests.UFM_005">
+      <class name="com.training.sanity.tests.UNF_035">
         <methods>
-          <include name="validMyAccountTest"/>
+          <include name="tearDown"/>
+          <include name="AdminAddProduct"/>
           <include name="setUpBeforeClass"/>
           <include name="setUp"/>
-          <include name="tearDown"/>
         </methods>
-      </class> <!-- com.training.sanity.tests.UFM_005 -->
+      </class> <!-- com.training.sanity.tests.UNF_035 -->
     </classes>
   </test> <!-- Default test(failed) -->
 </suite> <!-- Failed suite [Default suite] -->

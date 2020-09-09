@@ -1,29 +1,145 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testng-results ignored="0" total="1" passed="1" failed="0" skipped="0">
+<testng-results ignored="0" total="5" passed="5" failed="0" skipped="0">
   <reporter-output>
   </reporter-output>
-  <suite started-at="2020-08-21T19:54:59 EDT" name="Default suite" finished-at="2020-08-21T19:55:11 EDT" duration-ms="12061">
+  <suite started-at="2020-09-09T13:24:21 EDT" name="Default suite" finished-at="2020-09-09T13:24:46 EDT" duration-ms="25440">
     <groups>
     </groups>
-    <test started-at="2020-08-21T19:54:59 EDT" name="Default test" finished-at="2020-08-21T19:55:11 EDT" duration-ms="12061">
-      <class name="com.training.sanity.tests.LoginTests">
-        <test-method is-config="true" signature="setUpBeforeClass()[pri:0, instance:com.training.sanity.tests.LoginTests@d706f19]" started-at="2020-08-21T19:54:59 EDT" name="setUpBeforeClass" finished-at="2020-08-21T19:54:59 EDT" duration-ms="11" status="PASS">
+    <test started-at="2020-09-09T13:24:21 EDT" name="Default test" finished-at="2020-09-09T13:24:46 EDT" duration-ms="25440">
+      <class name="com.training.sanity.tests.UNF_066">
+        <test-method is-config="true" signature="setUpBeforeClass()[pri:0, instance:com.training.sanity.tests.UNF_066@65d6b83b]" started-at="2020-09-09T13:24:21 EDT" name="setUpBeforeClass" finished-at="2020-09-09T13:24:28 EDT" duration-ms="7557" status="PASS">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- setUpBeforeClass -->
-        <test-method is-config="true" signature="setUp()[pri:0, instance:com.training.sanity.tests.LoginTests@d706f19]" started-at="2020-08-21T19:54:59 EDT" name="setUp" finished-at="2020-08-21T19:55:08 EDT" duration-ms="8399" status="PASS">
+        <test-method signature="Login()[pri:1, instance:com.training.sanity.tests.UNF_066@65d6b83b]" started-at="2020-09-09T13:24:28 EDT" name="Login" finished-at="2020-09-09T13:24:30 EDT" duration-ms="1337" status="PASS">
           <reporter-output>
           </reporter-output>
-        </test-method> <!-- setUp -->
-        <test-method signature="validLoginTest()[pri:0, instance:com.training.sanity.tests.LoginTests@d706f19]" started-at="2020-08-21T19:55:08 EDT" name="validLoginTest" finished-at="2020-08-21T19:55:10 EDT" duration-ms="2595" status="PASS">
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- validLoginTest -->
-        <test-method is-config="true" signature="tearDown()[pri:0, instance:com.training.sanity.tests.LoginTests@d706f19]" started-at="2020-08-21T19:55:10 EDT" name="tearDown" finished-at="2020-08-21T19:55:11 EDT" duration-ms="1001" status="PASS">
+        </test-method> <!-- Login -->
+        <test-method is-config="true" signature="tearDown()[pri:0, instance:com.training.sanity.tests.UNF_066@65d6b83b]" started-at="2020-09-09T13:24:30 EDT" name="tearDown" finished-at="2020-09-09T13:24:31 EDT" duration-ms="1003" status="PASS">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- tearDown -->
-      </class> <!-- com.training.sanity.tests.LoginTests -->
+        <test-method signature="AdminAddXlsData(java.lang.String, java.lang.String, java.lang.String, java.lang.String)[pri:2, instance:com.training.sanity.tests.UNF_066@65d6b83b]" started-at="2020-09-09T13:24:32 EDT" name="AdminAddXlsData" data-provider="category-inputs" finished-at="2020-09-09T13:24:35 EDT" duration-ms="3188" status="PASS">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[Sports wear]]>
+              </value>
+            </param>
+            <param index="1">
+              <value>
+                <![CDATA[Sports1]]>
+              </value>
+            </param>
+            <param index="2">
+              <value>
+                <![CDATA[Sports2]]>
+              </value>
+            </param>
+            <param index="3">
+              <value>
+                <![CDATA[Sports3]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- AdminAddXlsData -->
+        <test-method is-config="true" signature="tearDown()[pri:0, instance:com.training.sanity.tests.UNF_066@65d6b83b]" started-at="2020-09-09T13:24:35 EDT" name="tearDown" finished-at="2020-09-09T13:24:36 EDT" duration-ms="1002" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- tearDown -->
+        <test-method signature="AdminAddXlsData(java.lang.String, java.lang.String, java.lang.String, java.lang.String)[pri:2, instance:com.training.sanity.tests.UNF_066@65d6b83b]" started-at="2020-09-09T13:24:36 EDT" name="AdminAddXlsData" data-provider="category-inputs" finished-at="2020-09-09T13:24:38 EDT" duration-ms="2453" status="PASS">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[Cultural wear]]>
+              </value>
+            </param>
+            <param index="1">
+              <value>
+                <![CDATA[Cultural1]]>
+              </value>
+            </param>
+            <param index="2">
+              <value>
+                <![CDATA[Cultural2]]>
+              </value>
+            </param>
+            <param index="3">
+              <value>
+                <![CDATA[Cultural3]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- AdminAddXlsData -->
+        <test-method is-config="true" signature="tearDown()[pri:0, instance:com.training.sanity.tests.UNF_066@65d6b83b]" started-at="2020-09-09T13:24:38 EDT" name="tearDown" finished-at="2020-09-09T13:24:39 EDT" duration-ms="1002" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- tearDown -->
+        <test-method signature="AdminAddXlsData(java.lang.String, java.lang.String, java.lang.String, java.lang.String)[pri:2, instance:com.training.sanity.tests.UNF_066@65d6b83b]" started-at="2020-09-09T13:24:39 EDT" name="AdminAddXlsData" data-provider="category-inputs" finished-at="2020-09-09T13:24:42 EDT" duration-ms="2561" status="PASS">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[Weekend uniform]]>
+              </value>
+            </param>
+            <param index="1">
+              <value>
+                <![CDATA[Weekend1]]>
+              </value>
+            </param>
+            <param index="2">
+              <value>
+                <![CDATA[Weekend2]]>
+              </value>
+            </param>
+            <param index="3">
+              <value>
+                <![CDATA[Weekend3]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- AdminAddXlsData -->
+        <test-method is-config="true" signature="tearDown()[pri:0, instance:com.training.sanity.tests.UNF_066@65d6b83b]" started-at="2020-09-09T13:24:42 EDT" name="tearDown" finished-at="2020-09-09T13:24:43 EDT" duration-ms="1001" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- tearDown -->
+        <test-method signature="AdminAddXlsData(java.lang.String, java.lang.String, java.lang.String, java.lang.String)[pri:2, instance:com.training.sanity.tests.UNF_066@65d6b83b]" started-at="2020-09-09T13:24:43 EDT" name="AdminAddXlsData" data-provider="category-inputs" finished-at="2020-09-09T13:24:45 EDT" duration-ms="2344" status="PASS">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[Formal wear]]>
+              </value>
+            </param>
+            <param index="1">
+              <value>
+                <![CDATA[formal1]]>
+              </value>
+            </param>
+            <param index="2">
+              <value>
+                <![CDATA[formal2]]>
+              </value>
+            </param>
+            <param index="3">
+              <value>
+                <![CDATA[formal3]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- AdminAddXlsData -->
+        <test-method is-config="true" signature="tearDown()[pri:0, instance:com.training.sanity.tests.UNF_066@65d6b83b]" started-at="2020-09-09T13:24:45 EDT" name="tearDown" finished-at="2020-09-09T13:24:46 EDT" duration-ms="1001" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- tearDown -->
+      </class> <!-- com.training.sanity.tests.UNF_066 -->
     </test> <!-- Default test -->
   </suite> <!-- Default suite -->
 </testng-results>

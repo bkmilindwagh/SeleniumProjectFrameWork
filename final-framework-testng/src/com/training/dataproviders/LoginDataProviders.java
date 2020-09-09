@@ -22,6 +22,7 @@ public class LoginDataProviders {
 			Object[]  obj = new Object[2]; 
 			obj[0] = temp.getUserName(); 
 			obj[1] = temp.getPassword(); 
+		
 			
 			result[count ++] = obj; 
 		}
@@ -31,8 +32,14 @@ public class LoginDataProviders {
 	}
 	
 	@DataProvider(name = "excel-inputs")
+	public Object[][] getExcelData1(){
+		String fileName ="C:\\Selenium Jar\\Testdata.xlsx"; 
+		return new ApachePOIExcelRead().getExcelContent(fileName); 
+	}
+	
+	@DataProvider(name = "category-inputs")
 	public Object[][] getExcelData(){
-		String fileName ="C:/Users/Naveen/Desktop/Testing.xlsx"; 
+		String fileName ="C:\\Selenium Jar\\Testdata.xlsx"; 
 		return new ApachePOIExcelRead().getExcelContent(fileName); 
 	}
 	

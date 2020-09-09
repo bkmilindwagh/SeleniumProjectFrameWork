@@ -5,24 +5,34 @@ import java.io.IOException;
 import java.util.Properties;
 
 import org.openqa.selenium.WebDriver;
-
 import org.testng.Assert;
 import org.testng.annotations.AfterMethod;
 import org.testng.annotations.BeforeClass;
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
 
-import com.training.generics.ScreenShot;
 import com.training.pom.AcctInfoPOM;
+import com.training.pom.CartPOM;
 import com.training.pom.LoginPOM;
+import com.training.pom.OrderHistPOM;
+import com.training.pom.PasswordPOM;
+import com.training.pom.PaymentDetailPOM;
+import com.training.pom.StorePOM;
 import com.training.utility.DriverFactory;
 import com.training.utility.DriverNames;
 
-public class UFM_005 {
+public class UNF_036 {
 	private WebDriver driver;
 	private String baseUrl;
 	private LoginPOM loginPOM;
 	private AcctInfoPOM acctInfoPOM;
+	private PasswordPOM passwordPOM;
+	private StorePOM storePOM;
+	private CartPOM cartPOM;
+	private PaymentDetailPOM paymentDetailPOM;
+	private OrderHistPOM orderHistPOM;
+	
+	
 	private static Properties properties;
 	//private ScreenShot screenShot;
 
@@ -37,7 +47,13 @@ public class UFM_005 {
 	public void setUp() throws Exception {
 		driver = DriverFactory.getDriver(DriverNames.CHROME);
 		loginPOM = new LoginPOM(driver); 
-		acctInfoPOM = new AcctInfoPOM(driver); 
+		acctInfoPOM = new AcctInfoPOM(driver);
+		passwordPOM = new PasswordPOM(driver);
+		storePOM = new StorePOM(driver);
+		cartPOM = new CartPOM(driver);
+		paymentDetailPOM = new PaymentDetailPOM(driver);
+		orderHistPOM = new OrderHistPOM(driver);
+		
 		baseUrl = properties.getProperty("baseURL");
 		//screenShot = new ScreenShot(driver); 
 		// open the browser 
@@ -47,33 +63,37 @@ public class UFM_005 {
 	@AfterMethod
 	public void tearDown() throws Exception {
 		Thread.sleep(1000);
-		//driver.quit();
+		driver.quit();
 	}
 	@Test
-	public void validMyAccountTest() throws InterruptedException {
+	public void UserReturnsOrder() throws InterruptedException {
 		
+					
 		//Login
 		loginPOM.ClickMyAccount();
 		loginPOM.ClickMyAccountLogin();
 		loginPOM.sendUserName("milind@gmail.com");
 		loginPOM.sendPassword("password1$");
 		loginPOM.clickLoginBtn(); 
-			
-		//UFM005: To verify whether application allows user to modify the details  in Your Personal Details Page		
-		acctInfoPOM.clickEditAccount();
-		acctInfoPOM.sendfirstName("milind1");
-		acctInfoPOM.sendlastname("wagh");
-		acctInfoPOM.sendemail("milind@gmail.com");
-		acctInfoPOM.sendtelephone("111111111");
-		acctInfoPOM.sendfax("111111111");
-		acctInfoPOM.clickContinueBtn();
 		
-		//Assertion on Success message
-		String ActualResults = acctInfoPOM.ContinueSuccessMessage();
-		String ExpectedResults = "Success: Your account has been successfully updated.";
-		Assert.assertEquals(ActualResults, ExpectedResults);
+	
+		loginPOM.ClickMyAccount();
+		orderHistPOM.ClickOrderHistory();
+		orderHistPOM.ClickOrderView();
+		orderHistPOM.ClickReturn();
 		
+		orderHistPOM.ClickReasonRetunBtn();
+		orderHistPOM.ClickRetunOpenProduct();
+		orderHistPOM.sendComment("NO SPECIFIC PRODUCT");
+		paymentDetailPOM.CheckreadPolicy();
+		orderHistPOM.ClickSubmitBtn();
+		
+		orderHistPOM.getReturnProdSccessMessage();
+		String ActualResults = orderHistPOM.getReturnProdSccessMessage();
+		String ExpectedResults = "Thank you for submitting your return request";
+		System.out.println(ActualResults);
+		Assert.assertTrue(ActualResults.contains(ExpectedResults));
+	
 		
 	}
-	
 }
